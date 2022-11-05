@@ -4,11 +4,8 @@ import { THEME } from './src/styles/theme'
 
 import { Loading } from './src/components/Loading';
 import { AuthContextProvider } from './src/contexts/AuthContext';
-
-import { New } from './src/screens/New';
-import { SignIn } from './src/screens/SignIn'; 
-import { Find } from './src/screens/Find'; 
-import { Pools } from './src/screens/Pools';  
+  
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoading] = useFonts({ Roboto_400Regular, Roboto_500Medium, Roboto_700Bold })
@@ -17,14 +14,14 @@ export default function App() {
     <NativeBaseProvider theme={THEME}>
       <AuthContextProvider>
         <StatusBar
-          barStyle='light-content'
+          barStyle='dark-content'
           backgroundColor="transparent"
           translucent
         />
 
         {
           fontsLoading ?
-            <Pools /> :
+            <Routes /> :
             <Loading />
         }
       </AuthContextProvider>
