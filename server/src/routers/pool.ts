@@ -80,7 +80,7 @@ export async function PoolRoutes(fastify: FastifyInstance) {
 
     if (pool.participants.length > 0) {
       return reply.status(400).send({
-        message: 'You already join this pool'
+        message: 'You already join this pool.'
       })
     }
 
@@ -151,7 +151,7 @@ export async function PoolRoutes(fastify: FastifyInstance) {
 
     const { id } = getParams.parse(request.params)
 
-    const pools = await prisma.pool.findUnique({
+    const pools = await prisma.pool.findFirst({
       where: {
         id
       },
